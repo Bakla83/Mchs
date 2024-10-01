@@ -16,19 +16,24 @@
             <h1>МЧС России - Информационная система</h1>
         </div>
         <nav>
-            <ul>
+        <div class="nav-container">
+            <ul class="main-menu">
                 <li><a href="#">Отделения</a></li>
                 <li><a href="#">Деятельность</a></li>
                 <li><a href="#">Документы</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Настройки</a>
+                    <div class="dropdown-content">
+                        <a href="#">Пользовательские настройки</a>
+                        <a href="#">Настройки доступности</a>
+                    </div>
+                <li><a href="{% url 'contacts' %}" target="_blank">Контакты</a></li>
+
+                </li>
             </ul>
-            <div class="right-menu">
-                <a href="#">Настройки доступности</a>
-                <a href="#">Социальные сети</a>
-                <a href="#">Пользовательские настройки</a>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <main>
         <div class="content">
