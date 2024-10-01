@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{%  load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'image/pngwing.png' %}" alt="MCHS Logo" width="100" height="100">
+        </div>
+        <div class="title">
+            <h1>МЧС России - Информационная система</h1>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+
+            <input type="checkbox" name="is_admin"> Я администратор
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Отображение сообщений об ошибках -->
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li {{ message.tags }}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
+    </div>
+</body>
+</html>
