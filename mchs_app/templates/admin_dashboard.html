@@ -1,10 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-$END$
+    <h1>Панель администратора</h1>
+
+    <!-- Создание нового отчета -->
+    <div class="admin-container">
+        <h2>Создание нового отчета</h2>
+        <form method="post" action="{% url 'create_report' %}">
+            {% csrf_token %}
+            <div class="input-row">
+                <label for="report_name">Название отчета</label>
+                <input type="text" name="report_name" id="report_name" required>
+            </div>
+            <div class="input-row">
+                <label for="employee_name">Работник</label>
+                <input type="text" name="employee_name" id="employee_name" required>
+            </div>
+            <div class="input-row">
+                <label for="report_date">Дата</label>
+                <input type="date" name="report_date" id="report_date" required>
+            </div>
+            <div class="input-row">
+                <label for="department">Отделение</label>
+                <input type="text" name="department_name" id="department_name" required>
+            </div>
+            <div class="input-row">
+                <label for="address">Адрес объекта</label>
+                <input type="text" name="address" id="address" required>
+            </div>
+            <button type="submit">Создать отчет</button>
+        </form>
+    </div>
+
+    <!-- Сотрудники -->
+    <div class="admin-container">
+        <h2>Сотрудники</h2>
+        <form method="post" action="{% url 'add_employee' %}">
+            {% csrf_token %}
+            <div class="input-row">
+                <label for="name">Имя сотрудника</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="input-row">
+                <label for="department">Отделение</label>
+                <input type="text" name="department" id="department" required>
+            </div>
+            <button type="submit">Добавить сотрудника</button>
+        </form>
+
+        <h3>Удалить сотрудника</h3>
+        <ul>
+            {% for employee in employees %}
+                <li>{{ employee.employee_name }} ({{ employee.department }})
+                    <a href="{% url 'delete_employee' employee.id %}">Удалить</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Задания -->
+    <div class="admin-container">
+        <h2>Задания</h2>
+        <form method="post" action="{% url 'add_task' %}">
+            {% csrf_token %}
+            <div class="input-row">
+                <label for="task_name">Название задания</label>
+                <input type="text" name="task_name" id="task_name" required>
+            </div>
+            <button type="submit">Добавить задание</button>
+        </form>
+
+        <h3>Редактировать задание</h3>
+        <ul>
+            {% for task in tasks %}
+                <li>{{ task.task_name }} - {{ task.status }}
+                    <a href="{% url 'edit_task' task.id %}">Редактировать</a>
+                    <a href="{% url 'delete_task' task.id %}">Удалить</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
 </body>
 </html>

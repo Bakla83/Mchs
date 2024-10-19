@@ -6,6 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .task-block {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            border: 3px solid #003366;
+        }
+
+        .content {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,34 +36,54 @@
             <h1>МЧС России - Информационная система</h1>
         </div>
         <nav>
-        <div class="nav-container">
+           <div class="nav-container">
             <ul class="main-menu">
                 <li><a href="#">Отделения</a></li>
                 <li><a href="#">Деятельность</a></li>
-                <li><a href="#">Документы</a></li>
+
+                <!-- Отчеты -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Отчеты</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'create_report' %}">Создать новый отчёт</a>
+                        <a href="{% url 'create_report' %}"> Все отчёты </a>
+
+                    </div>
+                </li>
+
+                <!-- Настройки -->
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Настройки</a>
                     <div class="dropdown-content">
                         <a href="#">Пользовательские настройки</a>
                         <a href="#">Настройки доступности</a>
+                        <a href="{% url 'admin_page' %}" target="_blank">Администрирование</a>
                     </div>
-                <li><a href="{% url 'contacts' %}" target="_blank">Контакты</a></li>
-
                 </li>
+
+                <li><a href="{% url 'contacts' %}" target="_blank">Контакты</a></li>
             </ul>
         </div>
     </nav>
 </header>
 
-    <main>
-        <div class="content">
-            <h2>Основная информация</h2>
-            <ul>
-                <li><a href="#">Виды государственного надзора и контроля</a></li>
-                <li><a href="#">Программы профилактики рисков</a></li>
-                <li><a href="#">Доклады об осуществлении государственного надзора</a></li>
-            </ul>
+<div class="content">
+    <h2>Объекты для проверки</h2>
+    <form method="post" action="{% url 'submit_tasks' %}">
+        {% csrf_token %}
+        {% for object in object_list %}
+        <div class="task-block">
+                <label for="task1">
+                    <p><h3>Задание - {{object.title}}</h3></p>
+                    <p>Краткое описание задания: {{ object.description }}</p>
+                    <p>Статус: {{ object.status }}</p>
+                    <p>Дата проверки: {{ object.due_date }}</p>
+                </label>
+                <!-- <input type="checkbox" name="task1" id="task1"> -->
         </div>
-    </main>
+        {% endfor %}
+        <button type="submit">Отправить задания</button>
+    </form>
+</div>
 </body>
 </html>

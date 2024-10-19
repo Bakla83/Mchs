@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все отчеты</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-$END$
+    <header>
+        <h1>Все отчеты</h1>
+    </header>
+
+    <main>
+        <ul>
+            {% for report in reports %}
+                <li>{{ report.report_date }} - {{ report.inspection.object.object_name }} - {{ report.report_content }}</li>
+            {% endfor %}
+        </ul>
+    </main>
 </body>
 </html>

@@ -17,25 +17,32 @@
         </div>
     </header>
 
-    <div class="login-container">
+  <div class="login-container">
         <form method="post">
             {% csrf_token %}
-            <label for="username">Username</label>
-            <input type="text" name="username" required>
+            <div class="input-row">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+            </div>
 
-            <label for="password">Password</label>
-            <input type="password" name="password" required>
-
-            <input type="checkbox" name="is_admin"> Я администратор
-
-            <button type="submit">Login</button>
+            <div class="input-row">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+<!--
+            <div class="checkbox-container">
+                <input type="checkbox" name="is_admin" id="is_admin">
+                <label for="is_admin">Я администратор</label>
+            </div>
+-->
+            <div class="button-row">
+                <button type="submit">Login</button>
+               <!-- <button type="submit" formaction="{% url 'add_user' %}">Добавить пользователя</button>-->
+            </div>
         </form>
 
-  <!-- Кнопка для добавления нового пользователя -->
-        <form method="post" action="{% url 'add_user' %}">
-            {% csrf_token %}
-            <button type="submit">Добавить пользователя</button>
-        </form>
+
+
 
         <!-- Отображение сообщений об ошибках -->
         {% if messages %}
