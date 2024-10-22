@@ -1,208 +1,145 @@
-/* Шапка */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #003366;
-    color: white;
-    padding: 10px;
-}
-
-/* Контейнер для формы */
-.login-container {
-    margin: 0 auto;
-    width: 300px;
-    padding: 20px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    background-color: #e6f2ff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Общие стили для полей ввода */
-input {
-    display: block;
-    margin-bottom: 10px;
-    padding: 5px;
+    background-color: #213280;
+    color: #f4f4f4;
     width: 100%;
-}
-
-/* Стили для строки ввода (Username, Password) */
-.input-row {
+    padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Выровнять по ширине */
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .logo-container {
+        margin-right: 20px;
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #f4f4f4;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.title h1 {
+    font-size: 1.5em;
+}
+
+@media (min-width: 768px) {
+    .title h1 {
+        font-size: 2em;
+    }
+}
+
+.login-container {
+    width: 90%;
+    max-width: 450px;
+    background-color: #d7edfb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+    .login-container {
+        padding: 30px;
+    }
+}
+
+.input-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .input-row label {
-    flex: 1;
-    text-align: left;
-}
-
-.input-row input {
-    flex: 2; /* Поле ввода занимает больше места */
-    padding: 5px;
-}
-
-/* Стили для чекбокса */
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 5px; /* Отступ между чекбоксом и текстом */
-}
-
-.checkbox-container input[type="checkbox"] {
-    margin: 0;
-    width: auto;
-}
-
-/* Стили для кнопок */
-.button-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.button-row button {
-    flex: 1;
-    padding: 5px;
-    margin-right: 5px;
-}
-
-/* Медиазапрос для мобильных устройств */
-@media (max-width: 600px) {
-    .login-container {
-        width: 100%; /* Контейнер становится 100% ширины */
-        padding: 15px;
-    }
-
-    .input-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .button-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .button-row button {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-}
-
-/* Модальные окна */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-.close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
+.input-row input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-row {
+    text-align: center;
+}
+
+.button-row button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #213280;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Стили для меню */
-.nav-container {
-    background-color: white;
+.button-row button:hover {
+    background-color: #1a2566;
+}
+
+ul {
+    margin-top: 20px;
     padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.main-menu {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
+    background-color: #f8d7da;
+    border-radius: 5px;
+    color: #721c24;
 }
 
-.main-menu li {
-    position: relative;
-    padding: 0 15px;
-}
-
-.main-menu li a {
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-    display: block;
-}
-
-/* Выпадающее меню */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    min-width: 200px;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    color: black;
-    display: block;
-    white-space: nowrap;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Медиазапрос для мобильных устройств */
-@media (max-width: 1380px) {
-    .nav-container {
-        flex-direction: column;
+@media (max-width: 480px) {
+    .login-container {
+        padding: 15px;
     }
 
-    .main-menu {
-        flex-direction: column;
+    .input-row input {
+        font-size: 14px;
     }
 
-    .main-menu li {
-        padding: 5px 0;
-    }
-
-    .dropdown-content {
-        position: static;
-        width: 100%;
+    .button-row button {
+        font-size: 14px;
+        padding: 8px 16px;
     }
 }
