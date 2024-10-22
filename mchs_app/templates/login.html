@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="title">
-            <h1>МЧС России - Информационная система</h1>
+            <h1>МЧС России – Информационная система</h1>
         </div>
     </header>
 
@@ -24,21 +24,21 @@
         <form method="post">
             {% csrf_token %}
             <div class="input-row">
-                <label for="username">Username</label>
+                <label for="username">Имя пользователя</label>
                 <input type="text" name="username" id="username" required>
             </div>
             <div class="input-row">
-                <label for="password">Password</label>
+                <label for="password">Пароль</label>
                 <input type="password" name="password" id="password" required>
             </div>
             <div class="button-row">
-                <button type="submit">Login</button>
+                <button type="submit">Войти</button>
             </div>
         </form>
 
         <!-- Отображение сообщений об ошибках -->
         {% if messages %}
-            <ul>
+            <ul class="inform-message">
                 {% for message in messages %}
                     <li {{ message.tags }}>{{ message }}</li>
                 {% endfor %}
