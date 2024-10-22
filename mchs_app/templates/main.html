@@ -22,10 +22,10 @@
 
     <nav>
         <div class="nav-container">
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <ul class="main-menu">
                 <li><a href="#">Главная</a></li>
                 <li><a href="#">Отделения</a></li>
-                <li><a href="#">Деятельность</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Отчеты</a>
                     <div class="dropdown-content">
@@ -33,6 +33,7 @@
                         <a href="{% url 'create_report' %}">Все отчёты</a>
                     </div>
                 </li>
+                <li><a href="#">Деятельность</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Настройки</a>
                     <div class="dropdown-content">
