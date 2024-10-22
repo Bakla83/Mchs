@@ -280,3 +280,24 @@ nav {
         display: grid;
     }
 }
+
+.input-row-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.input-row-group .input-row {
+    flex: 1;
+}
+
+#report_content {
+    resize: vertical;
+    min-height: 5em;
+}
+
+@media (max-width: 768px) {
+    .input-row-group {
+        flex-direction: column;
+    }
+}
