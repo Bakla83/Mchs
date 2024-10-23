@@ -221,7 +221,7 @@ nav {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.task-block {
+.info-block {
     padding: 20px;
     margin-bottom: 20px;
     border: 2px solid #213280;
@@ -230,12 +230,12 @@ nav {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 }
 
-.task-block h3 {
+.info-block h3 {
     color: #213280;
     margin-bottom: 10px;
 }
 
-.task-block p {
+.info-block p {
     color: #333;
 }
 

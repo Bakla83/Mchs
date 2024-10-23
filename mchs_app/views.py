@@ -23,6 +23,9 @@ class MainView(ListView):
 #
 #    return render(request, 'main.html')
 
+def departments(request):
+   return render(request, 'departments.html')
+
 # Логика добавления нового пользователя
 def add_user_view(request):
     if request.method == 'POST':

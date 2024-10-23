@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отделения</title>
+    <link rel="icon" href="{% static 'image/pngwing.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="{% static 'image/pngwing.png' %}" alt="MCHS Logo">
+            </div>
+        </div>
+        <div class="title">
+            <h1>МЧС России – Отделения в Краснодаре</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <ul class="main-menu">
+                <li><a href="/main">Главная</a></li>
+                <li><a href="/departments">Отделения</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Отчеты</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'create_report' %}">Создать новый отчёт</a>
+                        <a href="{% url 'create_report' %}">Все отчёты</a>
+                    </div>
+                </li>
+                <li><a href="#">Деятельность</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Настройки</a>
+                    <div class="dropdown-content">
+                        <a href="#">Пользовательские настройки</a>
+                        <a href="#">Настройки доступности</a>
+                        <a href="{% url 'admin_page' %}" target="_blank">Администрирование</a>
+                    </div>
+                </li>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h2 style="margin-bottom: 20px">Отделения МЧС в Краснодаре</h2>
+        <div class="info-block">
+            <h3>Отделение МЧС №1</h3>
+            <p><strong>Адрес:</strong> ул. Ленина, 45, Краснодар</p>
+            <p><strong>Работники:</strong> Иванов Иван, Петров Петр, Сидоров Алексей</p>
+            <p><strong>Описание:</strong> Данное отделение занимается вопросами пожарной безопасности и реагированием на чрезвычайные ситуации в центральной части города. Основная задача - своевременное реагирование и обеспечение безопасности населения.</p>
+        </div>
+        <div class="info-block">
+            <h3>Отделение МЧС №2</h3>
+            <p><strong>Адрес:</strong> ул. Красная, 120, Краснодар</p>
+            <p><strong>Работники:</strong> Кузнецов Андрей, Смирнов Николай, Фёдорова Ольга</p>
+            <p><strong>Описание:</strong> Отделение специализируется на предупреждении и ликвидации последствий природных катастроф в западной части города. Проводит профилактическую работу и учения для повышения готовности к чрезвычайным ситуациям.</p>
+        </div>
+        <div class="info-block">
+            <h3>Отделение МЧС №3</h3>
+            <p><strong>Адрес:</strong> ул. Мира, 10, Краснодар</p>
+            <p><strong>Работники:</strong> Захарова Мария, Волков Сергей, Павлов Алексей</p>
+            <p><strong>Описание:</strong> Основная деятельность данного отделения сосредоточена на работе с промышленными предприятиями города. Проводит проверки соблюдения правил пожарной безопасности и организует тренировки по эвакуации.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navContainer = document.querySelector('.nav-container');
+            navContainer.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
