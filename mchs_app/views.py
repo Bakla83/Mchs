@@ -23,8 +23,13 @@ class MainView(ListView):
 #
 #    return render(request, 'main.html')
 
+# Отделения
 def departments(request):
    return render(request, 'departments.html')
+
+# Деятельность
+def activity(request):
+   return render(request, 'activity.html')
 
 # Логика добавления нового пользователя
 def add_user_view(request):

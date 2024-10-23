@@ -33,7 +33,7 @@
                         <a href="{% url 'create_report' %}">Все отчёты</a>
                     </div>
                 </li>
-                <li><a href="#">Деятельность</a></li>
+                <li><a href="/activity">Деятельность</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Настройки</a>
                     <div class="dropdown-content">
@@ -48,7 +48,7 @@
     </nav>
 
     <div class="content">
-        <h2 style="margin-bottom: 20px">Объекты для проверки</h2>
+        <h2 class="head-text">Объекты для проверки</h2>
         <form method="post" action="{% url 'submit_tasks' %}">
             {% csrf_token %}
             {% for object in object_list %}

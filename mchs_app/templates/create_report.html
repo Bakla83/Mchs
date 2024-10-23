@@ -25,15 +25,15 @@
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <ul class="main-menu">
                 <li><a href="/main">Главная</a></li>
-                <li><a href="#">Отделения</a></li>
+                <li><a href="/departments">Отделения</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Отчеты</a>
                     <div class="dropdown-content">
-                        <a href="/create_report">Создать новый отчёт</a>
+                        <a href="{% url 'create_report' %}">Создать новый отчёт</a>
                         <a href="{% url 'create_report' %}">Все отчёты</a>
                     </div>
                 </li>
-                <li><a href="#">Деятельность</a></li>
+                <li><a href="/activity">Деятельность</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Настройки</a>
                     <div class="dropdown-content">
@@ -48,7 +48,7 @@
     </nav>
 
     <div class="content">
-        <h2 style="margin-bottom: 20px">Создание нового отчёта</h2>
+        <h2 class="head-text">Создание нового отчёта</h2>
         <form method="post" action="{% url 'create_report' %}">
             {% csrf_token %}
             <div class="input-row-group">

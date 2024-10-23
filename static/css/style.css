@@ -239,6 +239,11 @@ nav {
     color: #333;
 }
 
+.head-text {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 /* Мобильная навигационная панель */
 .menu-toggle {
     display: none;
@@ -300,4 +305,39 @@ nav {
     .input-row-group {
         flex-direction: column;
     }
+}
+
+.phone-number {
+    white-space: nowrap; /* Запрет на перенос номеров телефонов */
+}
+
+.emergency-numbers {
+    padding: 20px;
+    background-color: #eef2fb;
+    border-left: 5px solid #213280;
+    border-radius: 10px;
+}
+
+.emergency-numbers li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 1.1em;
+}
+
+.emergency-numbers li strong {
+    color: #213280;
+    font-weight: 700;
+}
+
+.title-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.title-container h2 {
+    font-size: 1.6em;
+    color: #213280;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
