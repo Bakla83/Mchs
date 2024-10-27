@@ -55,9 +55,9 @@
             <div class="info-block">
                 <label for="task{{ forloop.counter }}">
                     <h3>Задание – {{object.title}}</h3>
-                    <p>Краткое описание задания: {{ object.description }}</p>
-                    <p>Статус: {{ object.status }}</p>
-                    <p>Дата проверки: <span style="white-space: nowrap;">{{ object.due_date }}</span></p>
+                    <p><strong>Краткое описание задания:</strong> {{ object.description }}</p>
+                    <p><strong>Статус:</strong> {{ object.status }}</p>
+                    <p><strong>Дата проверки:</strong> <span style="white-space: nowrap;">{{ object.due_date }}</span></p>
                 </label>
             </div>
             {% endfor %}
